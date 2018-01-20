@@ -8,6 +8,7 @@
     <version>1.0.0</version>
   </parent>
   <artifactId>gap-api</artifactId>
+  <version>${gap-api.version}</version>
   <name>gap-api</name>
   <url>http://maven.apache.org</url>
   <properties>
