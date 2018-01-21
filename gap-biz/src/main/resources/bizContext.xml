@@ -38,6 +38,7 @@
     </bean>
     
     <import resource="classpath:dalContext.xml"/>
+    <import resource="classpath:spring-mybatis.xml"/>
     
     <context:component-scan base-package="com.ethan.gap.biz"/>
     
