@@ -16,6 +16,7 @@
 
     <description>Spring配置</description>
     <context:annotation-config/> 
+    <import resource="classpath:cxfContext.xml" />
 
     <bean id="propertyConfigurerForBiz"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">

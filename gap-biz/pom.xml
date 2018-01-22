@@ -32,26 +32,6 @@
 			<version>${gap-wrapper.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.codehaus.xfire</groupId>
-			<artifactId>xfire-spring</artifactId>
-			<version>1.2.6</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>spring</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>xbean</artifactId>
-					<groupId>xmlbeans</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.codehaus.xfire</groupId>
-			<artifactId>xfire-jaxws</artifactId>
-			<version>1.2.6</version>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<exclusions>
@@ -177,9 +157,17 @@
 			<artifactId>freemarker</artifactId>
 		</dependency>
 		<dependency>
-		        <groupId>redis.clients</groupId>
-		        <artifactId>jedis</artifactId>
-		    </dependency>
+	        <groupId>redis.clients</groupId>
+	        <artifactId>jedis</artifactId>
+		</dependency>
+		<dependency> 
+			<groupId>org.apache.cxf</groupId> 
+			<artifactId>cxf-rt-frontend-jaxws</artifactId> 
+		</dependency> 
+		<dependency> 
+			<groupId>org.apache.cxf</groupId> 
+			<artifactId>cxf-rt-transports-http</artifactId> 
+		</dependency>
 	</dependencies>
 	<build>
 		<resources>
