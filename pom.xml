@@ -238,7 +238,7 @@
             <dependency>
                 <groupId>redis.clients</groupId>
                 <artifactId>jedis</artifactId>
-                <version>2.1.0</version>
+                <version>2.5.1</version>
             </dependency>
             <dependency>
                 <groupId>org.codehaus.jackson</groupId>
@@ -464,6 +464,11 @@
 			  <artifactId>poi-scratchpad</artifactId>
 			  <version>3.15</version>
 			</dependency>
+			<dependency>
+		        <groupId>redis.clients</groupId>
+		        <artifactId>jedis</artifactId>
+		        <version>2.5.1</version>
+		    </dependency>
         </dependencies>
     </dependencyManagement>
 	<build>
