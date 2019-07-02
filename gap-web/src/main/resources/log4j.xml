@@ -8,7 +8,7 @@
 	<appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
 		<param name="encoding" value="UTF-8" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{MM/dd HH:mm:ss}] [%-3p] %c{1}: %m%n" />
+			<param name="ConversionPattern" value="[%d] [%t] [%-5p] %c{2} - %m%n" />
 		</layout>
 	</appender>
 	
@@ -16,7 +16,7 @@
 		<param name="file" value="/data/logs/application/gap/api.log" />
 		<param name="encoding" value="UTF-8" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{MM/dd HH:mm:ss}] [%-3p] %c{1}: %m%n" />
+			<param name="ConversionPattern" value="[%d] [%t] [%-5p] %c{2} - %m%n" />
 		</layout>
 	</appender>
 	
@@ -24,7 +24,7 @@
 		<param name="file" value="/data/logs/application/gap/biz.log" />
 		<param name="encoding" value="UTF-8" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{MM/dd HH:mm:ss}] [%-3p] %c{1}: %m%n" />
+			<param name="ConversionPattern" value="[%d] [%t] [%-5p] %c{2} - %m%n" />
 		</layout>
 	</appender>
 
@@ -32,7 +32,7 @@
 		<param name="file" value="/data/logs/application/gap/web.log" />
 		<param name="encoding" value="UTF-8" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{MM/dd HH:mm:ss}] [%-3p] %c{1}: %m%n" />
+			<param name="ConversionPattern" value="[%d] [%t] [%-5p] %c{2} - %m%n" />
 		</layout>
 	</appender>
 
@@ -40,7 +40,7 @@
 		<param name="file" value="/data/logs/application/gap/default.log" />
 		<param name="encoding" value="UTF-8" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{MM/dd HH:mm:ss}] [%-3p] %c{1}: %m%n" />
+			<param name="ConversionPattern" value="[%d] [%t] [%-5p] %c{2} - %m%n" />
 		</layout>
 	</appender>
 
@@ -48,7 +48,7 @@
 		<param name="file" value="/data/logs/application/gap/schedule-default.log" />
 		<param name="encoding" value="UTF-8" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{MM/dd HH:mm:ss}] [%-3p] %c{1}: %m%n" />
+			<param name="ConversionPattern" value="[%d] [%t] [%-5p] %c{2} - %m%n" />
 		</layout>
 	</appender>
 

@@ -57,20 +57,20 @@
         <servlet-name>spring</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-	
+
 	<servlet>
-	　　<servlet-name>CXFServlet</servlet-name>
-	　　<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
-	　　<load-on-startup>1</load-on-startup>
+         <servlet-name>CXFServlet</servlet-name>
+         <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+         <load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-	　　<servlet-name>CXFServlet</servlet-name>
-	　　<url-pattern>/cxf/*</url-pattern>
+         <servlet-name>CXFServlet</servlet-name>
+         <url-pattern>/cxf/*</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
          <servlet-name>dubbo</servlet-name>
-         <servlet-class>com.alibaba.dubbo.remoting.http.servlet.DispatcherServlet</servlet-class>
+         <servlet-class>org.apache.dubbo.remoting.http.servlet.DispatcherServlet</servlet-class>
          <load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>

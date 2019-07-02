@@ -15,7 +15,7 @@
 		<property name="messageConverters">
 			<util:list>
 				<ref bean="byteArrayHttpMessageConverter" />
-				<ref bean="mappingJacksonHttpMessageConverter" />
+				<ref bean="mappingJackson2HttpMessageConverter" />
 			</util:list>
 		</property>
 	</bean>
@@ -48,8 +48,8 @@
 		</property>
 	</bean>
 
-	<bean id="mappingJacksonHttpMessageConverter"
-		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+	<bean id="mappingJackson2HttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 		<property name="supportedMediaTypes">
 			<util:list>
 				<bean class="org.springframework.http.MediaType">
@@ -103,7 +103,7 @@
 
 
 	<bean id="jsonView"
-		class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
+		class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
 		<property name="contentType" value="application/json;charset=UTF-8" />
 		<property name="disableCaching" value="true" />
 	</bean>
