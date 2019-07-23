@@ -100,11 +100,11 @@
                 <artifactId>logback-core</artifactId>
                 <version>1.0.9</version>
             </dependency>
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>1.0.9</version>
-            </dependency>
+<!--             <dependency> -->
+<!--                 <groupId>ch.qos.logback</groupId> -->
+<!--                 <artifactId>logback-classic</artifactId> -->
+<!--                 <version>1.0.9</version> -->
+<!--             </dependency> -->
             <dependency>
                 <groupId>commons-beanutils</groupId>
                 <artifactId>commons-beanutils</artifactId>
@@ -258,12 +258,22 @@
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>1.7.6</version>
+                <version>1.7.26</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-nop</artifactId>
-                <version>1.7.6</version>
+                <version>1.7.26</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+    			<artifactId>slf4j-simple</artifactId>
+                <version>1.7.26</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rabbitmq</groupId>
+                <artifactId>amqp-client</artifactId>
+                <version>5.7.1</version>
             </dependency>
             <dependency>
                 <groupId>redis.clients</groupId>
@@ -317,11 +327,11 @@
                 <artifactId>jetty</artifactId>
                 <version>6.1.14</version>
             </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-log4j12</artifactId>
-                <version>1.4.3</version>
-            </dependency>
+<!--             <dependency> -->
+<!--                 <groupId>org.slf4j</groupId> -->
+<!--                 <artifactId>slf4j-log4j12</artifactId> -->
+<!--                 <version>1.7.26</version> -->
+<!--             </dependency> -->
             <dependency>
 			    <groupId>org.hibernate</groupId>
 			    <artifactId>hibernate-validator</artifactId>
