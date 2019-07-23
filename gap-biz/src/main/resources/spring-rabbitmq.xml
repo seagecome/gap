@@ -1,0 +1,34 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	xsi:schemaLocation="http://www.springframework.org/schema/rabbit
+	http://www.springframework.org/schema/rabbit/spring-rabbit.xsd
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="connectionFactory" class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
+		<property name="username" value="admin"></property>
+		<property name="password" value="123456"></property>
+		<property name="host" value="172.30.16.43"></property>
+		<property name="port" value="5672"></property>
+		<property name="virtualHost" value="gap"></property>
+	</bean>
+
+	<rabbit:admin connection-factory="connectionFactory"/>
+	
+	<rabbit:queue name="${settle.queue}"></rabbit:queue>
+	
+	<rabbit:direct-exchange name="${settle.direct.exchange}" >
+		<rabbit:bindings>
+			<rabbit:binding queue="${settle.queue}" key="${settle.routing.key}"></rabbit:binding>
+		</rabbit:bindings>
+	</rabbit:direct-exchange>
+	
+	<bean id="jackson2JsonMessageConverter" class="org.springframework.amqp.support.converter.Jackson2JsonMessageConverter"></bean>
+	
+	<rabbit:template id="rabbitTemplate" connection-factory="connectionFactory" message-converter="jackson2JsonMessageConverter"></rabbit:template>
+
+	<rabbit:listener-container connection-factory="connectionFactory" >
+		<rabbit:listener ref="messageReceiver" queues="${settle.queue}"/>
+	</rabbit:listener-container>
+
+</beans>

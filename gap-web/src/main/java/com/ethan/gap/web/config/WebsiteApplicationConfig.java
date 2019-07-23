@@ -1,9 +1,9 @@
 package com.ethan.gap.web.config;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
+import org.springframework.context.annotation.Configuration;
 
-@Controller
+@Configuration
 public class WebsiteApplicationConfig {
 	@Value(value="${domain.host}")
 	private String domainHost;
