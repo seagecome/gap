@@ -82,7 +82,7 @@ public class RSAUtils {
             RSAPublicKeySpec keySpec = new RSAPublicKeySpec(b1, b2);  
             return (RSAPublicKey) keyFactory.generatePublic(keySpec);  
         } catch (Exception e) {  
-            e.printStackTrace();  
+            logger.error(e.getMessage(), e);
             return null;  
         }  
     }  
@@ -102,7 +102,7 @@ public class RSAUtils {
             RSAPrivateKeySpec keySpec = new RSAPrivateKeySpec(b1, b2);  
             return (RSAPrivateKey) keyFactory.generatePrivate(keySpec);  
         } catch (Exception e) {  
-            e.printStackTrace();  
+            logger.error(e.getMessage(), e);  
             return null;  
         }  
     }  
@@ -138,7 +138,7 @@ public class RSAUtils {
      * @throws Exception
      * 
      */
-    public static boolean verify(String data, String publicKey, String sign)throws Exception {
+    public static boolean verify(String data, String publicKey, String sign) throws Exception {
         logger.info("data:"+data);
         logger.info("publicKey:"+publicKey);
         logger.info("sign:"+sign);
@@ -304,8 +304,7 @@ public class RSAUtils {
      * @return
      * @throws Exception
      */
-    public static String getPrivateKey(Map<String, Object> keyMap)
-            throws Exception {
+    public static String getPrivateKey(Map<String, Object> keyMap) throws Exception {
         Key key = (Key) keyMap.get(PRIVATE_KEY);
         return Base64Utils.encode(key.getEncoded());
     }
@@ -317,8 +316,7 @@ public class RSAUtils {
      * @return
      * @throws Exception
      */
-    public static String getPublicKey(Map<String, Object> keyMap)
-            throws Exception {
+    public static String getPublicKey(Map<String, Object> keyMap) throws Exception {
         Key key = (Key) keyMap.get(PUBLIC_KEY);
         return Base64Utils.encode(key.getEncoded());
     }
@@ -331,8 +329,7 @@ public class RSAUtils {
      * @return 
      * @throws Exception 
      */  
-    public static String encryptByPrivateKey(String data, RSAPrivateKey privateKey)  
-            throws Exception {  
+    public static String encryptByPrivateKey(String data, RSAPrivateKey privateKey) throws Exception {  
         Cipher cipher = Cipher.getInstance("RSA", new org.bouncycastle.jce.provider.BouncyCastleProvider());  
         cipher.init(Cipher.ENCRYPT_MODE, privateKey);  
         // 模长  
@@ -493,7 +490,7 @@ public class RSAUtils {
             byte[] data = decrypt(privateKey, en_data);
             return new String(data);
         } catch (Exception ex) {
-        	logger.error(String.format("\"%s\" Decryption failed. Cause: %s", encrypttext, ex.getCause().getMessage()));
+        	logger.error(ex.getMessage(), ex);
         }
         return null;
     }
@@ -512,17 +509,17 @@ public class RSAUtils {
     }
     
     /**
-     * 使用指定私钥解密JS数据
+     * 使用指定私钥解密数据
      * @param source
      * @return
      */
-    public static String decryptJs(String source){
-	    String privateKey="MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAI+1OGEa9cjSUI+YW6pfpqr98aJLZIx/xq+U00kTdCk22CMRk9i56vSmkyTxYAURV08InhK1NL1CIp+HUrMXm3r7N4AoR+LNgFCaPq3oKuF2jvwbe6VV2hTZeLhDKnyOP7z5p4RlMwu0w3Z/FuWrz2UWMhqA4HG0aioDmkVXjNEpAgMBAAECgYB2WlNideeySrOab2oe+MO004urk9ftdlZVyIXyCxmBz+9VgmZ2+Tct4foRVNE1m0CCkKBO2/nhXJRTOgm8AVdER1X3tn1BkKExk4/o34s2gKId3kh71cePQ0nAWmIg59wp3bmnSRsP7GGZ2A5rO2HY5xeiCF2wB0Wr9gXSz6LGOQJBAMj8t7corXOKBoVCgP3Aj9BQap7Fwaf8gSFVuWnOcDLkH7GnjDNy8B0h5dSiPJiuzVW+bPNSFXX6MUMyzU6TE5cCQQC3CulRgBRlvXn5M+6wloOkP9i3S2+2AedVtGPO9efm68jew5EpqqoYKOujgE2e4793JCHQYIziQN4bUcoQQNk/AkAQnBHyqQHsknOHf795OPiplnu5M06Vu2BQiO0RuWW8Tu3vmJEVj2IYhjygHeg0Ff4SH/KRCS+M2GhJzWD6JV1xAkBUQtCfNP+uyieRIWf6oH8fKEkCL9bQCVZN7MmZZzgG5HnGmm6DqM2+a2/2B0U0JJFqLhbmzttr+AKGvwLusnuPAkAoQf0t55Sl5mDE02b9WQo8ThQVX5OgcuXSFYL/emKTYAAKrfwfayJdoXXyD8xgWQ9zsASLGsx/ETxUtn8OZkq+";
+    public static String decryptOrignString(String source){
+	    String privateKey="";
 	    try {
 			RSAPrivateKey key=(RSAPrivateKey)getPrivateKey(privateKey);
 			return StringUtils.reverse(decryptString(key,source));
 		} catch (Exception e) {			
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
 			return "";
 		}
     }
@@ -543,7 +540,7 @@ public class RSAUtils {
     		boolean flag = RSAUtils.verify(srcData, pubKey, signString);
     		logger.info("flag:"+flag);
     	} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
 		} 
     
     }
