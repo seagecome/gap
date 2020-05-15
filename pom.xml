@@ -30,7 +30,7 @@
 		<mybatis.version>3.1.1</mybatis.version>
 		<cxf.version>3.3.2</cxf.version>
 		<dubbo.version>2.7.2</dubbo.version>
-		<jackson.version>2.9.9</jackson.version>
+		<jackson.version>2.11.0</jackson.version>
   </properties>
   
   <modules>
